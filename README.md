@@ -13,7 +13,7 @@ The API allows you to create and retrieve users stored in memory.
 ## 📁 Folder Structure
 
 ```bash
-nome-api/
+go-api/
 ├── cmd/                # Application entry point
 │   └── server/main.go
 ├── internal/
@@ -29,8 +29,8 @@ nome-api/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/nome-api.git
-cd nome-api
+git clone https://github.com/yourusername/go-api.git
+cd go-api
 ```
 
 2. Install dependencies:
@@ -63,10 +63,6 @@ The API will be available at `http://localhost:8080`
   "email": "john@example.com"
 }
 ```
-
-## 🧪 Testing (coming soon)
-
-You can easily add unit tests for use cases and handlers.
 
 ## 📄 License
 
