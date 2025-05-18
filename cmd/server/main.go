@@ -5,7 +5,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"go-api/handlers"
+	"go-api/internal/interface/handlers"
+	"go-api/internal/interface/repository"
+	"go-api/internal/usecases"
 )
 
 func main() {
@@ -13,11 +15,9 @@ func main() {
 
 	r := gin.Default()
 
-	r.GET("/users", handlers.GetUsers)
-	r.POST("/users", handlers.CreateUser)
-	r.GET("/users/:id", handlers.GetUserByID)
-
-	fmt.Println("Server is running on port 8080")
+	userRepo := repository.NewMemoryUserRepo()
+	userUseCase := usecases.NewUserUseCase(userRepo)
+	handler.NewUserHandler(r, userUseCase)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Application started in %s\n", elapsedTime)
